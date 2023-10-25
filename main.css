@@ -1,0 +1,38 @@
+.circle{
+    width: 300px;
+    height: 300px;
+    border-radius: 250px;
+    opacity: 0.5;
+    transition: opacity 500ms;
+}
+
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green;
+}
+
+.gameboard{
+    border: 1px solid rgba(161, 110, 80, 0.548);
+    background-color: rgba(161, 110, 80, 0.548);
+    border-radius: 25px;
+}
+
+body{
+    background-color: rgb(139, 211, 211);
+}
+
+.top-bar{
+    border: 1px solid rgba(161, 110, 80, 0.548);
+    margin-top: 4px;
+    margin-bottom: 14px;
+    background-color: rgba(161, 110, 80, 0.548);
+    border-radius: 25px;
+}
