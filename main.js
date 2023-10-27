@@ -2,14 +2,15 @@ let computerSequence = [];
 let playerSequence = [];
 let timeoutIDs = [];
 let round = 0;
+const   ONE_SECOND_DELAY = 1000;
 
-document.querySelector("button[type=button]").onclick = startGame;
+const $button = document.querySelector("button[type=button]");
+$button.onclick = startGame;
 
 function startGame() {
   startComputerTurn();
   updateGameState("Computer Turn");
 
-  const $button = document.querySelector("button[type=button]");
   $button.textContent = "Reset Game";
   $button.classList.replace("btn-warning", "btn-danger");
   $button.onclick = reset;
@@ -23,8 +24,8 @@ function startComputerTurn() {
   round++;
   updateRoundCounter();
 
-  computerSequence.forEach((circle, index) => {
-    const DELAY = (index + 1) * 1000;
+  computerSequence.forEach((circle, sequenceNumber) => {
+    const DELAY = (sequenceNumber + 1) * ONE_SECOND_DELAY;
     const timeoutId = setTimeout(() => {
       playSound(circle);
       highlight(circle);
@@ -32,7 +33,7 @@ function startComputerTurn() {
     timeoutIDs.push(timeoutId);
   });
 
-  const PLAYER_DELAY = (computerSequence.length + 1) * 1000;
+  const PLAYER_DELAY = (computerSequence.length + 1) * ONE_SECOND_DELAY;
 
   const timeoutId = setTimeout(() => {
     unblockPlayerInput();
@@ -119,7 +120,6 @@ function reset() {
   computerSequence = [];
   clearAllTimeouts();
   
-  const $button = document.querySelector("button[type=button]");
   $button.textContent = "Start Again!";
   $button.classList.replace("btn-danger", "btn-warning");
   $button.onclick = startGame;
